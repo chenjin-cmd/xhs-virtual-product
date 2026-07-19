@@ -1,0 +1,23 @@
+# OS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Local test outputs (never commit)
+/output/
+tmp/
+*.zip
+
+# Packaged skill archives
+dist/
+
+# Local project memory / agent data (not for open source)
+.workbuddy/
