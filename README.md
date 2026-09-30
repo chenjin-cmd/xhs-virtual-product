@@ -141,6 +141,33 @@ cp xhs-virtual-product/SKILL.md AGENTS.md
 **示例 3 · 写笔记**
 > 给我写一篇「一年级拼音练习」的商品笔记：3 个标题变体（套公式）+ 正文 + 评论区话术。
 
+## 🆕 对标账号拆解增强
+
+现在也可以直接给账号链接、笔记链接、截图或复制的正文。Skill 会先说清楚这次到底拿到了什么，再做拆解，不会把没看到的销量、评论或利润编出来。
+
+**示例 4 · 账号拆解 + 自己的下一步**
+
+> 拆解这个小红书账号：<完整账号链接>。我会做表格，有三天时间。先告诉我能看到什么、看不到什么，再给我一个能做的原创产品和七天计划。
+
+有 Python 3.9+ 和 curl 时，可以在技能目录运行：
+
+```bash
+python3 scripts/fetch_profile.py "https://www.xiaohongshu.com/user/profile/<user_id>" -o "$HOME/xhs-work/subject-a"
+python3 scripts/fetch_note.py "https://www.xiaohongshu.com/explore/<note_id>?xsec_token=<token>&xsec_source=pc_user" -o "$HOME/xhs-work/subject-a/notes/note-a"
+```
+
+脚本尝试拿主页当前第一页、封面；用户提供同一篇带 token 的笔记链接后，尝试拿正文和图片。它不搜索、不翻页、不抓评论、店铺销量、订单或利润。主页第一页也不能代表整个账号；平台页面或访问限制变了，脚本可能失败，失败后不要反复重试。
+
+脚本会把结果写到 `-o` 指定的仓库外目录。真实账号链接、截图、数据和 token 都不要提交进 Git。详情链接里的 token 必须属于同一篇笔记，不能从主页 ID 猜笔记 ID，也不能跨笔记复用 token。
+
+拆完会补充三份可填写的材料：
+
+- `assets/templates/evidence-ledger.md`：记清楚看到了什么、来源是什么、哪里对不上。
+- `assets/templates/competitor-teardown.md`：按“谁会用、产品给什么、内容怎么做、怎么下单、我能学什么、最大风险”写报告。
+- `assets/templates/action-brief.md`：把报告变成自己的小产品、内容和七天计划。
+
+几个容易搞错的点：点赞、收藏和求链接不等于成交；封面里的店铺或案例不一定是账号作者；价格乘销量不等于利润；改几个字或用竞品截图不叫原创。详细说明见 [采集说明](references/07-data-collection.md)、[数据和截图怎么记](references/08-evidence-rules.md) 和 [拆完怎么做自己的产品](references/09-teardown-to-action.md)。
+
 ## ⚠️ 合规声明
 
 > [!WARNING]
@@ -153,6 +180,8 @@ cp xhs-virtual-product/SKILL.md AGENTS.md
 ## 📄 License
 
 [MIT](LICENSE) © chenjin-cmd
+
+融合来源及保留的 MIT 许可见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
 
 ---
 

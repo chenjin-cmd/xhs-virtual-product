@@ -60,3 +60,27 @@ agent_created: true
 | 合规检查清单 | `assets/templates/compliance-checklist.md` |
 | 七天实操路径 | `assets/templates/7day-plan.md` |
 | 标题爆款公式 | `assets/templates/title-formulas.md` |
+
+## 新增：账号拆解能力
+
+用户给出小红书账号链接、笔记链接、截图或正文时，可以用新增的账号拆解流程。旧的选品、对标、制作和内容流程保持不变；这部分只是给“对标”多了一种拿材料和整理结论的办法。
+
+先读：
+
+- `references/07-data-collection.md`：脚本能拿什么、拿不到什么、怎么运行。
+- `references/08-evidence-rules.md`：数字、截图和不同来源对不上时怎么写。
+- `references/09-teardown-to-action.md`：拆完后怎么变成自己的小产品和七天计划。
+
+新增交付物：
+
+- `assets/templates/evidence-ledger.md`：记来源、数字和数据缺口。
+- `assets/templates/action-brief.md`：写自己的小产品、内容和下一步。
+
+有 shell、Python 3.9+ 和 curl 时，可运行：
+
+```bash
+python3 scripts/fetch_profile.py "<账号链接或24位user_id>" -o <仓库外工作目录>
+python3 scripts/fetch_note.py "<同篇带token的笔记链接>" -o <仓库外工作目录>
+```
+
+主页脚本只尝试获取当前第一页和封面；笔记脚本需要用户提供同一篇笔记的 token。搜索、翻页、评论、店铺销量、订单和利润不在脚本范围内。拿不到的数据写“未获取”，不要编造。真实账号材料、图片和 token 不进仓库。

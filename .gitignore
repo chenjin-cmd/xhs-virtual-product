@@ -16,8 +16,35 @@ __pycache__/
 tmp/
 *.zip
 
+# Process records and logs (never commit)
+/docs/
+/logs/
+*.log
+
 # Packaged skill archives
 dist/
 
 # Local project memory / agent data (not for open source)
 .workbuddy/
+
+# Private collection artifacts (collectors require an external work directory)
+/covers/
+/notes/
+/work/
+/out/
+**/profile.json
+**/notes_list.json
+**/meta.json
+**/images.json
+**/manifest.json
+**/desc.md
+*.html
+*.jpg
+*.jpeg
+*.png
+*.webp
+*.gif
+*.part
+cookies*.json
+cookies.txt
+.env

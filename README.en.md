@@ -19,5 +19,11 @@ cp -r xhs-virtual-product ~/.workbuddy/skills/xhs-virtual-product
 ## Compliance
 This Skill supports **only original, compliant** virtual products. No copyrighted material, no infringing reprints, no off-platform diversion. Platform rules change often — always check official XHS sources.
 
+## New: account teardown
+
+You can also provide a profile URL, a token-bearing note URL, screenshots, or copied text. The added flow records what was actually obtained, then turns the findings into an original product idea and a small test plan.
+
+With Python 3.9+ and curl, run `scripts/fetch_profile.py` for the current profile page and covers, or `scripts/fetch_note.py` for one user-supplied token-bearing note. It does not search, paginate, collect comments, read store sales, orders, or profit. See `references/07-data-collection.md`, `references/08-evidence-rules.md`, and `references/09-teardown-to-action.md`.
+
 ## License
 MIT
